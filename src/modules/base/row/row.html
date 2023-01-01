@@ -1,0 +1,14 @@
+<template>
+    <div class="row">
+        <template if:true={isSubmitted}>
+            <template iterator:it={submittedTiles}>
+                <base-tile key={it.value.letter} letter={it.value.letter} position={it.index} state={it.value.state} is-completed={it.value.isCompleted}></base-tile>
+            </template>
+        </template>
+        <template if:false={isSubmitted}>
+            <template iterator:it={tiles}>
+                <base-tile key={it.value} letter={it.value} position={it.index}></base-tile>
+            </template>
+        </template>
+    </div>
+</template>

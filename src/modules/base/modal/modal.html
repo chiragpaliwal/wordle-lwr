@@ -1,0 +1,51 @@
+<template>
+    <details>
+        <summary>
+            <div class="details-modal-overlay"></div>
+        </summary>
+        <div class="details-modal">
+            <div class="details-modal-title">
+                <div class="details-modal-close" onclick={handleClose}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z"
+                            fill="black" />
+                    </svg>
+                </div>
+                <h1>How to Play</h1>
+            </div>
+            <div class="details-modal-content">
+                <div>
+                    <p>Guess the word in 6 tries. After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+                    <div class="row">
+                        <base-tile letter="w" position="0" state="correct" is-completed="true"></base-tile>
+                        <base-tile letter="e" position="1" state="" is-completed="false"></base-tile>
+                        <base-tile letter="a" position="2" state="" is-completed="false"></base-tile>
+                        <base-tile letter="r" position="3" state="" is-completed="false"></base-tile>
+                        <base-tile letter="y" position="4" state="" is-completed="false"></base-tile>
+                    </div>
+                    <p>The letter W is in the word and in the correct spot.</p>
+                    <div class="row">
+                        <base-tile letter="p" position="0" state="" is-completed="false"></base-tile>
+                        <base-tile letter="i" position="1" state="" is-completed="false"></base-tile>
+                        <base-tile letter="l" position="2" state="present" is-completed="true"></base-tile>
+                        <base-tile letter="o" position="3" state="" is-completed="false"></base-tile>
+                        <base-tile letter="t" position="4" state="" is-completed="false"></base-tile>
+                    </div>
+                    <p>The letter L is in the word but in the wrong spot.</p>
+                    <div class="row">
+                        <base-tile letter="v" position="0" state="" is-completed="false"></base-tile>
+                        <base-tile letter="a" position="1" state="" is-completed="false"></base-tile>
+                        <base-tile letter="g" position="2" state="" is-completed="false"></base-tile>
+                        <base-tile letter="u" position="3" state="absent" is-completed="true"></base-tile>
+                        <base-tile letter="e" position="4" state="" is-completed="false"></base-tile>
+                    </div>
+                    <p>The letter U is not in the word in any spot.</p>
+                </div>
+            </div>
+            <div class="details-modal-footer">
+                <p class="slds-text-align_left"><em>Developed with ❤️ using Lightning Web Components. <a href="https://github.com/chiragpaliwal/wordle-lwc" target="_blank">Check out the code!</a></em></p>
+            </div>
+        </div>
+    </details>
+</template>

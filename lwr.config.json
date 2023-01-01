@@ -1,0 +1,13 @@
+{
+    "lwc": { 
+        "modules": [
+            { "dir": "$rootDir/src/modules" }
+        ] },
+    "routes": [
+        {
+            "id": "base",
+            "path": "/",
+            "rootComponent": "base/wordle"
+        }
+    ]
+}
