@@ -3,7 +3,9 @@
         <div class="info">
             <img src="/public/assets/info.svg" alt="Info" width="30" onclick={handleHelp} />
         </div>
-        <div class="title"><h1>Wordle</h1></div>
+        <div class="title">
+            <h1>Wordle</h1>
+        </div>
         <div>
             <img src="/public/assets/settings.svg" alt="Settings" width="30" onclick={handleHelp} />
         </div>
@@ -15,5 +17,8 @@
             </template>
         </div>
         <base-modal></base-modal>
+    </div>
+    <div>
+        <base-keyboard onscreenpress={onPress}></base-keyboard>
     </div>
 </template>

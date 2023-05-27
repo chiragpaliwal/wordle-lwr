@@ -14,40 +14,56 @@ export default class Wordle extends LightningElement {
 
     constructor() {
         super();
-        window.addEventListener('keyup', (event)=>{
-            try {
-                const key = String.fromCharCode(event.keyCode);
-                if (!key.match(/^[A-Za-z]+$/) && event.keyCode != 8 && event.keyCode != 13 || this.activeRowId > 6) {
-                    return;
-                }
-                const activeRow = this.template.querySelector(`base-row[data-key="${this.activeRowId}"]`);
-
-                if (this.currentGuess.length < MAX_WORD_LENGHT && event.keyCode != 8 && event.keyCode != 13) {
-                    this.currentGuess.push(key.toLocaleLowerCase());
-                    activeRow.setCurrentGuess(this.currentGuess);
-                } else if (this.currentGuess.length > 0 && event.keyCode === 8) {
-                    this.currentGuess.pop();
-                    activeRow.setCurrentGuess(this.currentGuess);
-                } else if(this.currentGuess.length === MAX_WORD_LENGHT && event.keyCode === 13){
-                    if(!isValidGuess(this.currentGuess.join(''))){
-                        activeRow.classList.add("jiggle");
-                        setTimeout(() => {
-                            activeRow.classList.remove("jiggle");
-                        }, 1000);
-                        return;
-                    }
-                    activeRow.handleGuessSubmit();
-                    this.activeRowId += 1
-                    this.currentGuess = [];
-                }
-            } catch (error) {
-                console.error(error)
-            }
+        window.addEventListener('keyup', (event) => {
+            this.handleKeyUp(event);
         });
     }
 
-    async handleHelp(){
+    async handleHelp() {
         const modal = this.template.querySelector('base-modal');
         modal.handleOpen();
+    }
+
+    handleKeyUp(event) {
+        try {
+            const key = String.fromCharCode(event.keyCode);
+            if (!key.match(/^[A-Za-z]+$/) && event.keyCode != 8 && event.keyCode != 13 || this.activeRowId > 6) {
+                return;
+            }
+            const activeRow = this.template.querySelector(`base-row[data-key="${this.activeRowId}"]`);
+
+            if (this.currentGuess.length < MAX_WORD_LENGHT && event.keyCode != 8 && event.keyCode != 13) {
+                this.currentGuess.push(key.toLocaleLowerCase());
+                activeRow.setCurrentGuess(this.currentGuess);
+            } else if (this.currentGuess.length > 0 && event.keyCode === 8) {
+                this.currentGuess.pop();
+                activeRow.setCurrentGuess(this.currentGuess);
+            } else if (this.currentGuess.length === MAX_WORD_LENGHT && event.keyCode === 13) {
+                if (!isValidGuess(this.currentGuess.join(''))) {
+                    activeRow.classList.add("jiggle");
+                    setTimeout(() => {
+                        activeRow.classList.remove("jiggle");
+                    }, 1000);
+                    return;
+                }
+                activeRow.handleGuessSubmit();
+                this.activeRowId += 1
+                this.currentGuess = [];
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    onPress(event) {
+        let keyCode;
+        if (event.detail == 'ENTER') {
+            keyCode = 13;
+        } else if (event.detail == 'DELETE') {
+            keyCode = 8;
+        } else {
+            keyCode = event.detail.charCodeAt(0);
+        }
+        this.handleKeyUp({ 'keyCode': keyCode })
     }
 }

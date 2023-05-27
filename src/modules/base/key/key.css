@@ -1,0 +1,36 @@
+.key {
+    height: 3.5rem;
+    width: 40px;
+    border-radius: .25rem;
+    background-color: rgb(226 232 240);
+    border: 0 solid #e5e7eb;
+    margin: 2px;
+    font-size: .75rem;
+    font-weight: bold;
+}
+
+.key:hover {
+    background-color: rgb(203 213 225);
+}
+
+.key:active {
+    background-color: rgb(148 163 184);
+}
+
+button[data-value="ENTER"],
+button[data-value="DELETE"] {
+    width: 65px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .key {
+        width: 30px;
+    }
+
+    button[data-value="ENTER"],
+    button[data-value="DELETE"] {
+        width: 45px;
+        font-size: 10px;
+    }
+
+}

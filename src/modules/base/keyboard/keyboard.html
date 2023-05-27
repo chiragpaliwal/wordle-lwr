@@ -1,0 +1,19 @@
+<template>
+    <div class="keyboard">
+        <div class="keyboard-row">
+            <template for:each={firstRow} for:item="key">
+                <base-key key={key} value={key}></base-key>
+            </template>
+        </div>
+        <div class="keyboard-row">
+            <template for:each={secondRow} for:item="key">
+                <base-key key={key} value={key}></base-key>
+            </template>
+        </div>
+        <div class="keyboard-row">
+            <template for:each={thirdRow} for:item="key">
+                <base-key key={key} value={key}></base-key>
+            </template>
+        </div>
+    </div>
+</template>
