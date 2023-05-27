@@ -1,6 +1,6 @@
 # Wordle LWC
 
-This is a clone of a popular word guessing game Wordle. Created with 💕 using Lightning Web Components.
+This is a port of a popular word guessing game Wordle. Created with 💕 using Lightning Web Components and LWR.
 
 [**Try out the demo!**](https://wordle-lwr.vercel.app//)
 
